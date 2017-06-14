@@ -1,204 +1,90 @@
-/********* Fonts **********/
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Roboto'), local('Roboto-Regular'), url('../fonts/Roboto-Regular.ttf') format('truetype');
+li {
+	display: inline-block;
+	margin-right: 15px;
 }
 
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 500;
-  src: local('Roboto Medium'), local('Roboto-Medium'), url('../fonts/Roboto-Medium.ttf') format('truetype');
+.options {
+	margin-top: 5%;
 }
 
-/****** Main Styling ******/
-
-body {
-	font-family: 'Roboto', sans-serif;
-	font-size: 16px;
-	margin: 0;
-	padding: 0;
+.title {
+	margin: auto !important;
 }
 
-header {
-	color: #00BCD4;
-	height: 56px;
-	margin: 0 0 14px 0;
+
+.glyphicon {
+	font-size: 100px !important;
+	margin: 1.5% !important;
+}
+
+.features {
+	margin: auto !important;
+	width: 35% !important;
 	text-align: center;
 }
 
-p {
-	margin: 8px 0 0 0;
+
+.feature {
+	text-align: center !important;
+	font-weight: bold;
+	font-size: 18px;
 }
 
-.container p {
-	text-align: center;
-	padding: 0;
+.logo {
+	margin-top: 30px !important;
 }
 
-/****** Header Styling ******/
-
-header p {
-	margin: 16px 0 5px 0;
+.forms {
+	margin-top: 10% !important;
+	margin: auto;
+	width: 90% !important;
 }
 
-.menu {
-	text-decoration: none;
-	padding: 6px;
-	margin: 0;
-	color: #727272;
+.alert {
+	color: red;
+	font-weight: bold;
 }
 
-.menu:visited {
-	color: #727272;
+#searchBook {
+	width: 25% !important;
 }
 
-.menu:hover {
-	color: #FFA000;
+.books {
+	display: inline-block;
+	height: 30% !important;
 }
 
-.menu:active {
-	color: #FF630D;
+.library {
+	margin-top: 3% !important;
 }
 
-header a ~ p {
-	margin: 0;
-	padding: 0;
-	display: inline;
-	color: #ECEFF1;
+.title {
+	margin-top: 5% !important;
+	margin-left: 3% !important;
 }
 
-#display-name {
-	font-weight: 400;
+.requests {
+	border-top: 2px solid grey;
+	margin-bottom: 2% !important;
 }
 
-/****** Login Styling ******/
-
-.login {
-	margin: 86px auto 0 auto;
+.buttons {
+	margin: 6% !important;
 	text-align: center;
 }
-
-#login-btn {
-	width: 225px;
-	padding: 7px 5px;
-}
-
-.btn p {
-	margin: 8px 0 0 0;
-	padding: 0;
-}
-
-.btn > img {
-	float: left;
-	margin-left: 10px
-}
-
-/****** Logo Div Styling ******/
 
 img {
-	margin: 0 auto;
-	display: block;
+	margin-top: 4% !important;
 }
 
-.clementine-text { /* Styling for the Clementine.js text */
-	padding: 0;
-	margin: -25px 0 0 0;
-	font-weight: 500;
-	font-size: 60px;
-	color: #FFA000;
+.snippet {
+	font-size: 10px !important;
 }
 
-/****** Click Styling ******/
-
-.btn-container {	/* Styling for the div that contains the buttons */
-	margin: -10px auto 0 auto;
-	text-align: center;
+.btn-success {
+	margin-right: 4% !important;
 }
 
-.btn {	/* Styling for buttons */
-	margin: 0 8px;
-	color: white;
-	background-color: #00BCD4;
-	display: inline-block;
-	border: 0;
-	font-size: 14px;
-	border-radius: 3px;
-	padding: 10px 5px;
-	width: 100px;
-	font-weight: 500;
-}
-
-.btn:focus {	/* Remove outline when hovering over button */
-	outline: none;
-}
-
-.btn:active {	/* Scale the button down by 10% when clicking on button */
-	transform: scale(0.9, 0.9);
-	-webkit-transform: scale(0.9, 0.9);
-	-moz-transform: scale(0.9, 0.9);
-}
-
-.btn-delete {	/* Styling for delete button */
-	background-color: #ECEFF1;
-	color: #212121;
-}
-
-#click-nbr {
-	font-weight: 400;
-}
-
-/****** Profile Styling ******/
-
-.github-profile {
-	width: 350px;
-	height: 200px;
-	border-radius: 3px;
-	margin: 86px auto 0 auto;
-	background-color: #EEE;
-	text-align: center;
-	color: #000;
-}
-
-.github-profile p:first-child {
-	padding-top: 16px;
-}
-
-.github-profile p:nth-child(5) {
-	margin-bottom: 16px
-}
-
-.github-profile p {
-	margin: 0 0 0 16px;
-	text-align: left;
-}
-
-.profile-value {
-	font-weight: 400;
-}
-
-span {
-	font-weight: 500;
-}
-
-.github-profile > img {
-	padding-top: 16px;
-	margin-bottom: 16px;
-}
-
-.github-profile .menu:hover {
-	color: #FFA000;
-}
-
-.github-profile .menu:active {
-	color: #FF630D;
-}
-
-#menu-divide {
-	color: #FFFFFF;
-	display: inline;
-	margin: 0;
+.btn-danger {
+	margin-left: 4% !important;
 }

@@ -4,15 +4,19 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var User = new Schema({
-	github: {
-		id: String,
-		displayName: String,
-		username: String,
-      publicRepos: Number
+	username: String,
+	email: String,
+	password: String,
+	location: {
+		city: String,
+		state: String
 	},
-   nbrClicks: {
-      clicks: Number
-   }
+	books: Array
 });
+User.methods.validPassword = function(pwd) {
+	if (pwd === this.password) return true;
+	else return false;
+};
+
 
 module.exports = mongoose.model('User', User);

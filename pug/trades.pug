@@ -1,0 +1,59 @@
+include loggedin.pug
+    div(class="container-fluid title")
+        h2 Trade Requests
+        h4 Your Requests
+        div(class="requests container-fluid")
+        div(class="row")
+            each req in myreqs
+                div(class="books col-md-3")
+                    button(type="button" class="cancelReq close") x
+                    div(class="thumbnail")
+                        img(src=req.image)
+                        div(class="caption")
+                            h3=req.title
+        h4 Requests for You
+        div(class="requests")
+        div(class="row")
+            each req in reqs
+                    div(class="mybooks col-md-3")
+                            div(class="thumbnail")
+                                img(src=req.image)
+                                div(class="caption")
+                                    h3(id=req.trades[0])=req.title
+                                    p(class="buttons")
+                                        button(class="btn btn-success" type="submit") Accept
+                                        button(class="btn btn-danger" type="submit") Decline
+script. 
+    $('document').ready(function(){
+    var title;
+        $('.cancelReq').click(function() {
+                var title = $(this).siblings('.thumbnail').find('h3').text();
+                socket.emit('cancelRequest', title);
+                $(this).parent().remove();
+            });
+         $(".btn-success").click(function(e) {
+             e.preventDefault;
+             alert("Trade accepted.");
+             $(this).prop('disabled', true);
+             $(".btn-danger").prop('disabled', false);
+             var requestor = $(this).parent().siblings('h3').attr('id');
+             title = $(this).parent().siblings('h3').text();
+             socket.emit('acceptTrade', requestor);
+         });
+         $(".btn-danger").click(function(e) {
+             e.preventDefault;
+             var requestor = $(this).parent().siblings('h3').attr('id');
+             var answer = confirm("Are you sure you want to decline?");
+             if (answer===true) {
+             $(this).prop('disabled', true);
+             $(".btn-success").prop('disabled', false);
+             title = $(this).parent().siblings('h3').text();
+             socket.emit('declineTrade', requestor, title);
+             var div = $(this).parents('div.mybooks');
+             div.remove();
+             }
+         });
+         socket.on('acceptTrade', function(email) {
+             window.open('mailto:' + email + '?subject=' + title + '&body=' +   'I am willing to trade '+ title + ' with you. When and where can you meet?');
+         });
+    });    

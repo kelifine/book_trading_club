@@ -1,0 +1,34 @@
+include loggedin.pug
+    div(class="forms") 
+        h1 My Library: 
+        form(id="googlesearch")
+            div(class="form-group")    
+                label(for="searchBooks")
+                input(type="search" class="form-control" id="searchBook" name="searchbook" placeholder="Search for a book")
+            button(type="submit" class="btn btn-default") Search
+    div(class="library container-fluid")
+        each book in books
+            div(class="books col-md-3")
+                button(type="button" class="close") x
+                div(class="thumbnail")
+                    img(src=book.image)
+                    div(class="caption")
+                        h3=book.title
+                        p(class="snippet")=book.snippet
+script. 
+    $('document').ready(function(){
+        $("#googlesearch").submit(function(e) {
+            e.preventDefault();
+            socket.emit('booksearch', $("#searchBook").val());
+            $("#searchBook").val('');
+            return false;
+        });
+        socket.on('booksearch', function(image, snippet, title) {
+            $(".library").append("<div class='books col-md-3'><button type='button' class='close'>x</button><div class='thumbnail'><img src='"+image+"'><div class='caption'><h3>"+title+"</h3><p>"+snippet+"</p></div></div></div>");
+        });
+        $('.close').click(function() {
+                var title = $(this).siblings('.thumbnail').find('h3').text();
+                socket.emit('removebook', title);
+                $(this).parent().remove();
+            });
+    });    

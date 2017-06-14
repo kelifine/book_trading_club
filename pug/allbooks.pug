@@ -1,0 +1,17 @@
+include loggedin.pug
+div(class="container-fluid title")    
+    h1 All Books: 
+    p(class="alert")=locals.alert
+    div(class="library")
+        each book in books 
+            div(class="books col-md-3")
+                a(href='/trade/'+book.title)
+                    div(class="thumbnail")
+                        img(src=book.image)
+                        div(class="caption")
+                            h3=book.title
+                            p(class="snippet")=book.snippet
+script. 
+    if ($(".alert").val()==='') {
+        $(".alert").style('display', 'none');
+    };
